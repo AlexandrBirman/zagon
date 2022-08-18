@@ -1,3 +1,3 @@
 compile:
-	rm bin/container
+	rm bin/container 
 	g++ src/container.cpp -o bin/container
