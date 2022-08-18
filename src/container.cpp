@@ -3,6 +3,8 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <sys/wait.h>
+#include <string.h>
+#include <errno.h>
 
 char* stack_memory() {
 	const int stackSize = 65536;
@@ -22,15 +24,33 @@ int run(P... params) {
 	return execvp(args[0], args);
 }
 
+void setup_variables() {
+	clearenv();
+	setenv("TERM", "xterm-256color", 0);
+	setenv("PATH", "/bin/:/sbin/:usr/bin:/usr/sbin", 0);
+}
+
+void setup_root(const char* folder) {
+	chroot(folder);
+	chdir("/");
+}
+
 int jail(void *args) {
+	printf("child process: %d \n", getpid());
+
+	setup_variables();
+	setup_root("./root");
+
 	run("/bin/sh");
 	return EXIT_SUCCESS;
 }
 
 int main() {
-	printf("Hello, world! (parent) \n");
-
-	clone(jail, stack_memory(), SIGCHLD, 0);
+	printf("parent process: %d \n", getpid());
+	int error_code = clone(jail, stack_memory(), CLONE_NEWPID | CLONE_NEWUTS | SIGCHLD, 0);
+	if (error_code <= -1) {
+		printf("Sempai something went wrong!:\n%s \n", strerror(errno));
+	}
 	wait(nullptr);
 	return EXIT_SUCCESS;
 }
