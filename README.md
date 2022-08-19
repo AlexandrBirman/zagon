@@ -12,7 +12,7 @@ Docs languages:
 
 Steps:
 
-- [TODO] -  OCI compatible container runtime, same as Runc, Crun.
+- [TODO] -  OCI compatible container runtime, same as runc, crun.
   Main goal - isolation and secutiry. (runz)
 - [TODO] - Image builder, same as Buildah.
 - [TODO] - Daemonless container manager, same as Podman.
