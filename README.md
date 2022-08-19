@@ -1,4 +1,4 @@
-Chpock - minimalistic daemonless container manager (in future...).
+Zagon - minimalistic daemonless container manager (in future...).
 
 Developed for study purposes.
 
@@ -13,7 +13,7 @@ Docs languages:
 Steps:
 
 - [TODO] -  OCI compatible container runtime, same as Runc, Crun.
-  Main goal - isolation and secutiry.
+  Main goal - isolation and secutiry. (runz)
 - [TODO] - Image builder, same as Buildah.
 - [TODO] - Daemonless container manager, same as Podman.
 
